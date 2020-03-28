@@ -1,3 +1,5 @@
+from Util import Util
+
 class Game(object):
 
     def __init__(self, enemies, items, rooms, player):
@@ -11,7 +13,7 @@ class Game(object):
         pass
     
     @staticmethod
-    def load_game(directory : str) -> Game:
+    def load_game(directory : str):
         """
         Loads yaml files from input directory into a game object
         """
