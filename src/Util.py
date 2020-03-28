@@ -69,9 +69,9 @@ class Util():
         """
         Wrapper method for yaml.safe_load(), loads an object from a yaml file
         """
-		with open( filename, 'r' ) as stream:
-			data = yaml.safe_load( stream )
-			return data
+        with open( filename, 'r' ) as stream:
+            data = yaml.safe_load( stream )
+            return data
     
     @staticmethod
     def clear_data() -> None:
