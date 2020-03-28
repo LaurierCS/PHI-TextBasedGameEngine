@@ -6,8 +6,6 @@ name: Python Syntax Check
 on:
   pull_request:
     branches: [ master ]
-    paths: 
-      - src/**
 
 jobs:
   validate:
