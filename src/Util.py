@@ -53,10 +53,7 @@ class Util():
                 continue
             
             # Get the object and add to our object list
-            success, obj = Util.get_yaml_object(fname)
-            if not success:
-                print( "Loading '{}' failed: {}".format(fname, obj) )
-                return
+            obj = Util.get_yaml_object(fname)
             loaded.append( fname )
             # If we include other files, add them to the stack
             if 'include' in obj:
@@ -72,12 +69,9 @@ class Util():
         """
         Wrapper method for yaml.safe_load(), loads an object from a yaml file
         """
-        try:
-            with open( filename, 'r' ) as stream:
-                data = yaml.safe_load( stream )
-                return ( True, data )
-        except (IOError, yaml.YAMLError) as ex:
-            return (False, ex)
+		with open( filename, 'r' ) as stream:
+			data = yaml.safe_load( stream )
+			return data
     
     @staticmethod
     def clear_data() -> None:
