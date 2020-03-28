@@ -15,15 +15,11 @@ class Enemy(object):
 class EnemyTemplate(object):
     
     def __init__(self, yml):
-        try:
-            self.name = yml['name']
-            self.health = Util.parse_minmax_object(yml, 'health', int)
-            self.attack = Util.parse_minmax_object(yml, 'attack', int)
-            self.defence = Util.parse_minmax_object(yml, 'defence', int)
-            self.xp = Util.parse_minmax_object(yml, 'xp', int)
-        except (KeyError, ValueError) as err:
-            name = '<no name provided>' if 'name' not in yml else yml['name']
-            raise GameError("Error loading enemy '{}' : {}".format(name, err))
+        self.name = yml['name']
+        self.health = Util.parse_minmax_object(yml, 'health', int)
+        self.attack = Util.parse_minmax_object(yml, 'attack', int)
+        self.defence = Util.parse_minmax_object(yml, 'defence', int, 0)
+        self.xp = Util.parse_minmax_object(yml, 'xp', int, 0)
 
     def create_enemy(self) -> Enemy:
         """

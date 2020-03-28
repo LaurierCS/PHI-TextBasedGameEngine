@@ -78,19 +78,29 @@ class Util():
         return Game(enemies, items, rooms, player)
 
     @staticmethod
-    def parse_minmax_object(obj : dict, key : str, transform=lambda x: x):
+    def parse_minmax_object(obj : dict, key : str, transform=lambda x: x, default=None):
         """
         Parses a value from a yaml object, returns a dictionary with
         two entries: min and max
         """
-        if ('min_' + key in obj) and ('max_' + key in obj):
-            result = {
-                'min' : transform(obj['min_'+key]), 
-                'max' : transform(obj['max_'+key])
-            }
-        else:
-            result = { 
-                'min' : transform(obj[key]), 
-                'max' : transform(obj[key])
-            }
+        try:
+            if ('min_' + key in obj) and ('max_' + key in obj):
+                result = {
+                    'min' : transform(obj['min_'+key]), 
+                    'max' : transform(obj['max_'+key])
+                }
+            elif key in obj:
+                result = { 
+                    'min' : transform(obj[key]), 
+                    'max' : transform(obj[key])
+                }
+            elif default is not None:
+                result = {'min':default,'max':default}
+            else:
+                raise GameError("'{}' is a required field, but no value was provided".format(key))
+        except Exception as ex:
+            if ex is GameError:
+                raise ex
+            raise GameError("Error formatting property '{}': {}".format(key, ex))
+        
         return result
