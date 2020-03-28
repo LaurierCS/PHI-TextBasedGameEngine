@@ -42,7 +42,6 @@ def load_data(filename : str) -> None:
             filestack.extend( obj['include'] )
             del obj['include'] # Remove includes from our yaml object
         objects.append( obj )
-    # For now, just toss all objects into our _data list
     return objects
 
 def get_yaml_object(filename : str) -> (bool, dict):
