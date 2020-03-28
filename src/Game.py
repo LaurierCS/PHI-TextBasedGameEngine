@@ -1,3 +1,5 @@
+from Util import Util
+
 class Game(object):
 
     def __init__(self, enemies, items, rooms, player):
@@ -7,8 +9,16 @@ class Game(object):
         self.rooms = []
         self.player = []
     
-    def load_game(self, game_path : str) -> None:
-        pass
-    
     def save_game_state(self, save_path : str) -> None:
         pass
+    
+    @staticmethod
+    def load_game(directory : str):
+        """
+        Loads yaml files from input directory into a game object
+        """
+        enemies = Util.load_yaml_data( Util.get_yaml_filename("enemies") )
+        rooms = Util.load_yaml_data( Util.get_yaml_filename("rooms") )
+        items = Util.load_yaml_data( Util.get_yaml_filename("items") )
+        player = Util.load_yaml_data( Util.get_yaml_filename("player") )
+        return Game(enemies, items, rooms, player)
