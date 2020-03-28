@@ -13,6 +13,7 @@
     Editors: <IF YOU WORKED ON THIS FILE, PLEASE ADD YOUR NAME! :) >
     Date: 2020-03-26
 """
+import yaml
 
 class Util():
     # No constructor needed as this class is purely static
