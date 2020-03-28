@@ -47,10 +47,10 @@ Parses a value from a yaml object, returns a dictionary with two entries: min an
 #### Parameters
 name | description | default
 ---|---|---
-obj |  | 
-key |  | 
-transform |  | lambda x
-default |  | None
+obj | the dict to search in | 
+key | the key to look for | 
+transform | method to apply to the result (e.g. int to convert to integers) | lambda x
+default | default value to use if the key is not found | None
 
 
 #### Throws
