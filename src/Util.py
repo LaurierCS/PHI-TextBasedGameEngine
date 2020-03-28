@@ -19,7 +19,7 @@ from Game import Game
 from GameError import GameError
 
 
-def load_data(filename : str) -> None:
+def load_yaml_data(filename : str) -> None:
     """
     Load yaml data from a file and applies custom rules (like include)
     """
@@ -53,6 +53,9 @@ def get_yaml_object(filename : str) -> (bool, dict):
         return data
 
 def get_yaml_filename(directory : str, name_prefix : str):
+    """
+    Helper function to get either a .yml or .yaml file given the name
+    """
     yml_extension = path.join(directory, name_prefix + ".yml")
     yaml_extension = path.join(directory, name_prefix + ".yaml")
     if path.isfile(yml_extension):
@@ -65,8 +68,29 @@ def get_yaml_filename(directory : str, name_prefix : str):
 class Util():
     @staticmethod
     def load_game(directory : str) -> Game:
-        enemies = load_data( get_yaml_filename("enemies") )
-        rooms = load_data( get_yaml_filename("rooms") )
-        items = load_data( get_yaml_filename("items") )
-        player = load_data( get_yaml_filename("player") )
+        """
+        Loads yaml files from input directory into a game object
+        """
+        enemies = load_yaml_data( get_yaml_filename("enemies") )
+        rooms = load_yaml_data( get_yaml_filename("rooms") )
+        items = load_yaml_data( get_yaml_filename("items") )
+        player = load_yaml_data( get_yaml_filename("player") )
         return Game(enemies, items, rooms, player)
+
+    @staticmethod
+    def parse_minmax_object(obj : dict, key : str, transform=lambda x: x):
+        """
+        Parses a value from a yaml object, returns a dictionary with
+        two entries: min and max
+        """
+        if ('min_' + key in obj) and ('max_' + key in obj):
+            result = {
+                'min' : transform(obj['min_'+key]), 
+                'max' : transform(obj['max_'+key])
+            }
+        else:
+            result = { 
+                'min' : transform(obj[key]), 
+                'max' : transform(obj[key])
+            }
+        return result
