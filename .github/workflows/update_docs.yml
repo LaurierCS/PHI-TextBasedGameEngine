@@ -1,0 +1,39 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python application
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - src/*
+      - src/*/*
+      - src/*/*/*
+      - src/*/*/*/*
+      - .github/workflows/update_docs.yml
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Generate Python Docs
+      uses: jbheard/markdown-docs@master
+      with:
+        src_path: src
+        dst_path: code_docs
+    - name: Open docs update PR
+      uses: peter-evans/create-pull-request@ac9f92d6e7740defa61e0452cbb17b9778fef7e0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
