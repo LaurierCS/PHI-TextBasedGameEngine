@@ -35,7 +35,7 @@ class Util():
                 continue
             
             # Get the object and add to our object list
-            obj = get_yaml_object(fname)
+            obj = Util.get_yaml_object(fname)
             loaded.append( fname )
             # If we include other files, add them to the stack
             if 'include' in obj:
