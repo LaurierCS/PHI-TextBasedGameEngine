@@ -28,11 +28,11 @@ class EnemyTemplate(object):
     def create_enemy(self) -> Enemy:
         """
         Factory/builder method to create an enemy object from
-		this template
+        this template
         """
-        attack = randint(self.attack['min'], self.attack['max']+1)
-        health = randint(self.health['min'], self.health['max']+1)
-        xp = randint(self.xp['min'], self.xp['max']+1)
-        defence = randint(self.defence['min'], self.defence['max']+1)
+        attack = randint(self.attack['min'], self.attack['max'])
+        health = randint(self.health['min'], self.health['max'])
+        xp = randint(self.xp['min'], self.xp['max'])
+        defence = randint(self.defence['min'], self.defence['max'])
         return Enemy(self.name, attack, health, defence, xp)
 
