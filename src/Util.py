@@ -75,6 +75,11 @@ class Util():
         """
         Parses a value from a yaml object, returns a dictionary with
         two entries: min and max
+
+        @param obj the dict to search in
+        @param key the key to look for
+        @param transform method to apply to the result (e.g. int to convert to integers)
+        @param default default value to use if the key is not found
         
         @throws GameError if an expected key is missing, or the provided transform lambda fails
         @return a dict in the form {'min':min_val, 'max':max_val}
