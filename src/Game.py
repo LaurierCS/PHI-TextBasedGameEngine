@@ -1,6 +1,6 @@
 class Game(object):
 
-    def __init__(self):
+    def __init__(self, enemies, items, rooms, player):
         # TODO: These might not all be arrays (player in particular)
         self.enemies = []
         self.items = []
