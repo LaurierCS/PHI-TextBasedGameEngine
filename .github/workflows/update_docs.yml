@@ -36,4 +36,7 @@ jobs:
     - name: Open docs update PR
       uses: peter-evans/create-pull-request@ac9f92d6e7740defa61e0452cbb17b9778fef7e0
       with:
+        title: "Automated: Update docs"
+        reviewers: jbheard
+        branch: automated/update_docs 
         token: ${{ secrets.GITHUB_TOKEN }}
