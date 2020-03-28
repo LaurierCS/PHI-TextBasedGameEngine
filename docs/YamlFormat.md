@@ -1,6 +1,6 @@
 # Yaml File Format
 
-Since there will be a lot of different options, this file will break down how to format your games using YAML.
+Since there will be a lot of different options, this file will break down how to format your games using [YAML](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html).
 
 ## Basic File Structure
 
@@ -12,6 +12,7 @@ my_game
   - rooms.yaml
   - items.yaml
   - player.yaml
+  - config.yaml
 ```
 
 Where `enemies.yaml` contains definitions for your enemies, `rooms.yaml` contains room definitions, and so on.
@@ -30,43 +31,30 @@ include
   - bosses/boss_.yaml
 ```
 
-This file simply contains a yaml list of all files to include. The files will be read at once as if they are all one large file.
+This file simply contains a yaml list of all files to include. The included files will treated as if they are all one large file.
 
-## Enemies.yaml
+## Min and Max Values
 
-`enemies.yaml` is expected to be a YAML list of enemies, each enemy should have the following properties:
+For properties which could be generated randomly, a range can be provided. This is done by replacing the property name with `min_<property>` and `max_property`.
 
-* `name` - The name of the enemy
-* `min_health` - Minimum number of health points
-* `max_health` - Maximum number of health points
-* `min_defence` - Minimum number of defence points
-* `max_defence` - Same as above for defence
-* `min_xp` - Minimum experience points to award for beating this enemy
-* `max_xp` - Maximum experience points to award for beating this enemy
-
-An example `enemies.yaml` file could look like:
-
+**Example:** If some enemy has
 ```yaml
-- name: Spider
-  min_health: 2
-  max_health: 4
-  min_defence: 0
-  max_defence: 0
-  min_xp: 3
-  max_xp: 3
+health: 10
 ```
-
-For values which have the same min/max, you can aggregate them into one field (dropping the min/max prefix). For example, the above could be rewritten as:
-
+Could be replaced by
 ```yaml
-- name: Spider
-  min_health: 2
-  max_health: 4
-  defence: 0
-  xp: 3
+min_health: 5
+max_health: 15
 ```
+Now, instead of every spider enemy spawning with 10 health, they will be created with health varying between 5 and 15 points.
 
 
-This creates an enemy named "Spider", any spider encountered in the game will have between 2 and 4 HP, will always award 3 XP, and will always have 0 defence.
+## Specific File & Object formats
 
-For more information on enemies, see the [enemy documentation](Enemies.md).
+Documentation on specific file formats can be found below:
+
+* [Enemies](Enemies.md)
+* [Rooms](Rooms.md)
+* [Items](Items.md)
+* [Player](Player.md)
+* [Config](Config.yaml)
