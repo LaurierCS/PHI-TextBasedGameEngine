@@ -14,8 +14,6 @@
     Date: 2020-03-26
 """
 
-import yaml
-
 class Util():
     # No constructor needed as this class is purely static
 
@@ -72,6 +70,7 @@ class Util():
         with open( filename, 'r' ) as stream:
             data = yaml.safe_load( stream )
             return data
+
     
     @staticmethod
     def clear_data() -> None:
@@ -87,4 +86,3 @@ class Util():
         =====================================================================
         """
         Util.data.clear()
-    
