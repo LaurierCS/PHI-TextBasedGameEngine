@@ -34,5 +34,3 @@ This creates an enemy named "Spider", any spider encountered in the game will ha
 
 
 
-### Yaml Example
-
