@@ -35,9 +35,9 @@ This file simply contains a yaml list of all files to include. The included file
 
 ## Min and Max Values
 
-For properties which could be generated randomly, a range can be provided. This is done by replacing the property name with `min_<property>` and `max_property`.
+For properties which could be generated randomly, a range can be provided. This is done by replacing the property name with `min_<property>` and `max_<property>`.
 
-**Example:** If some enemy has
+**Example:** If the spider enemy has
 ```yaml
 health: 10
 ```
