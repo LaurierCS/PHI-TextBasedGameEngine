@@ -1,27 +1,25 @@
 """
-    This file contains the definition for the Util class, which is a Utility
-    class that handles the interaction between the filesystem and the program's
-    data.
-
-    All methods of this class are static, and can therefore be called in the 
-    following manner:
-        Utils.<method_name>()
-    
-    This reduces the amount of code duplication when reading from files.
-
-    Author: Nick Mills (Discord: Knifesurge#1723; Everywhere: Knifesurge)
-    Editors: <IF YOU WORKED ON THIS FILE, PLEASE ADD YOUR NAME! :) >
-    Date: 2020-03-26
+Author: Nick Mills (Discord: Knifesurge#1723; Everywhere: Knifesurge)
+<IF YOU WORKED ON THIS FILE, PLEASE ADD YOUR NAME! :) >
+Editors: Jacob Heard 
+Date: 2020-03-26
 """
 import yaml
 import os.path as path
 from GameError import GameError
 
 class Util():
+    """
+    a static utility class, all utility functions with no better place 
+    to live should go in here
+    """
+
     @staticmethod
-    def load_yaml_data(filename : str) -> None:
+    def load_yaml_data(filename : str):
         """
         Load yaml data from a file and applies custom rules (like include)
+        @param filename the name of the yaml file to load
+        @return a list of all yaml objects loaded from the file, & included files
         """
         objects = []
         loaded = [] # List of files we have already loaded
@@ -45,18 +43,24 @@ class Util():
         return objects
 
     @staticmethod
-    def get_yaml_object(filename : str) -> (bool, dict):
+    def get_yaml_object(filename : str):
         """
         Wrapper method for yaml.safe_load(), loads an object from a yaml file
+        @param filename the name of the file to load from
+        @return a python object representing the yaml file
         """
         with open( filename, 'r' ) as stream:
             data = yaml.safe_load( stream )
             return data
 
     @staticmethod
-    def get_yaml_filename(directory : str, name_prefix : str):
+    def get_yaml_filename(directory : str, name_prefix : str) -> str:
         """
         Helper function to get either a .yml or .yaml file given the name
+        @param directory the directory to look in
+        @param name_prefix the expected file name without extension
+        @return the path to the file with the correct extension
+        @throws GameError if neither file exists
         """
         yml_extension = path.join(directory, name_prefix + ".yml")
         yaml_extension = path.join(directory, name_prefix + ".yaml")
@@ -71,6 +75,14 @@ class Util():
         """
         Parses a value from a yaml object, returns a dictionary with
         two entries: min and max
+
+        @param obj the dict to search in
+        @param key the key to look for
+        @param transform method to apply to the result (e.g. int to convert to integers)
+        @param default default value to use if the key is not found
+        
+        @throws GameError if an expected key is missing, or the provided transform lambda fails
+        @return a dict in the form {'min':min_val, 'max':max_val}
         """
         try:
             if ('min_' + key in obj) and ('max_' + key in obj):
