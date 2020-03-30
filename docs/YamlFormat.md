@@ -41,7 +41,7 @@ For properties which could be generated randomly, a range can be provided. This 
 ```yaml
 health: 10
 ```
-Could be replaced by
+it could be replaced with
 ```yaml
 min_health: 5
 max_health: 15
