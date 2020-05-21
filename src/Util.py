@@ -3,6 +3,7 @@ Author: Nick Mills (Discord: Knifesurge#1723; Everywhere: Knifesurge)
 <IF YOU WORKED ON THIS FILE, PLEASE ADD YOUR NAME! :) >
 Editors: Jacob Heard 
 Date: 2020-03-26
+@author
 """
 import yaml
 import os.path as path
