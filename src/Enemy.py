@@ -1,25 +1,26 @@
 from GameError import GameError
 from random import randint
 from Util import Util
+from Entity import Entity
 
+class Enemy(Entity):
+    """
+    Represents an Enemy within the game.
 
-class Enemy(object):
+    @editor Nausher Rao (SherRao#8509)
     """
-    For a single instance of an enemy in game.
-    """
-    def __init__(self, name : str, attack : int, health : int, defence : int, xp : int):
+
+    def __init__(self, name: str, health: int, defence: int, attack: int, xp: int):
         """
-        @param name The name of the enemy (Example: "spider")
         @param attack Points of damage this enemy can do
-        @param health Starting number of health points
-        @param defence How much damage can be deflected per hit
         @param xp Number of experience points to award for beating this enemy
         """
-        self.name = name
+        super().__init__(self, name, False, health, defence)
         self.attack = attack
-        self.health = health
-        self.defence = defence
         self.xp = xp
+
+    def update(self):
+        pass;
 
 
 class EnemyTemplate(object):
@@ -47,5 +48,5 @@ class EnemyTemplate(object):
         health = randint(self.health['min'], self.health['max'])
         xp = randint(self.xp['min'], self.xp['max'])
         defence = randint(self.defence['min'], self.defence['max'])
-        return Enemy(self.name, attack, health, defence, xp)
+        return Enemy(self.name, health, defence, attack, xp)
 
