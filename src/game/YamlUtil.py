@@ -9,7 +9,7 @@ import yaml
 import os.path as path
 from GameError import GameError
 
-class Util():
+class YamlUtil():
     """
     a static utility class, all utility functions with no better place 
     to live should go in here
