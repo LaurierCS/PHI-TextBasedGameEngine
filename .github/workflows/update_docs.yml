@@ -7,10 +7,7 @@ on:
   push:
     branches: [ master ]
     paths:
-      - src/*
-      - src/*/*
-      - src/*/*/*
-      - src/*/*/*/*
+      - src/**
       - .github/workflows/update_docs.yml
 
 jobs:
