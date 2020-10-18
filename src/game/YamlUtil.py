@@ -7,7 +7,7 @@ Date: 2020-03-26
 """
 import yaml
 import os.path as path
-from GameError import GameError
+from game.GameError import GameError
 
 class YamlUtil():
     """
@@ -34,7 +34,7 @@ class YamlUtil():
                 continue
             
             # Get the object and add to our object list
-            obj = Util.get_yaml_object(fname)
+            obj = YamlUtil.get_yaml_object(fname)
             loaded.append( fname )
             # If we include other files, add them to the stack
             if 'include' in obj:
