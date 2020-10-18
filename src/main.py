@@ -1,5 +1,6 @@
 import os, sys
 import argparse
+import pickle
 
 from game.YamlUtil import YamlUtil
 from game.Game import Game
