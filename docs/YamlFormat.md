@@ -35,9 +35,21 @@ This file simply contains a yaml list of all files to include. The included file
 
 # Names
 
-Enemies, rooms, and items all have unique names which can be used to refer to them in game (and in [item effects](Items.md#effects)).
+Enemies, rooms, and items all have unique names which can be used to refer to them in game (and in [item effects](Items.md#effects)). 
 
-Because these names can be used to 
+Because these names can be used to refer to specific objects, they must be unique; you can not have an enemy and item named the same thing. It is worth noting that names are not case-sensitive.  
+Additionally, names must follow specific guidelines:
+
++ Start with alphabetic character or underscore
++ Be made up of only spaces, alphanumeric characters, and underscores
++ Any character after a space must not be numeric
++ Must not begin or end with spaces (they will be trimmed)
++ Any sequence of multiple spaces will be shortened to a single space
+
+For example, `love potion`, `___`, `test12 test` are all valid names.  
+`123 potion`, `sword 1`, `a,-b` are all invalid names.  
+`love potion` and `love   potion` will be treated as identical.
+
 
 ## Min and Max Values
 
