@@ -1,7 +1,7 @@
-from Game import Game
-from GameError import GameError
+from game.Game import Game
+from game.GameError import GameError
+from game.YamlUtil import YamlUtil
 from random import randint
-from Util import Util
 
 class Entity(object):
     """

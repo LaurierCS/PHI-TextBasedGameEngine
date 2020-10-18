@@ -1,4 +1,4 @@
-from Util import Util
+from game.YamlUtil import YamlUtil
 
 class Game(object):
     """
@@ -43,8 +43,8 @@ class Game(object):
         @param directory directory to load the game from
         @return a loaded Game object
         """
-        enemies = Util.load_yaml_data( Util.get_yaml_filename("enemies") )
-        rooms = Util.load_yaml_data( Util.get_yaml_filename("rooms") )
-        items = Util.load_yaml_data( Util.get_yaml_filename("items") )
-        player = Util.load_yaml_data( Util.get_yaml_filename("player") )
+        enemies = YamlUtil.load_yaml_data( YamlUtil.get_yaml_filename(directory, "enemies") )
+        rooms = YamlUtil.load_yaml_data( YamlUtil.get_yaml_filename(directory, "rooms") )
+        items = YamlUtil.load_yaml_data( YamlUtil.get_yaml_filename(directory, "items") )
+        player = YamlUtil.load_yaml_data( YamlUtil.get_yaml_filename(directory, "player") )
         return Game(enemies, items, rooms, player)
