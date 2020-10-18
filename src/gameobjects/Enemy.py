@@ -1,7 +1,7 @@
-from GameError import GameError
 from random import randint
-from Util import Util
-from Entity import Entity
+from game.GameError import GameError
+from game.YamlUtil import YamlUtil
+from gameobjects.Entity import Entity
 
 class Enemy(Entity):
     """
@@ -33,10 +33,10 @@ class EnemyTemplate(object):
         @param yml object parsed from yaml representing an enemy blueprint
         """
         self.name = yml['name']
-        self.health = Util.parse_minmax_object(yml, 'health', int)
-        self.attack = Util.parse_minmax_object(yml, 'attack', int)
-        self.defence = Util.parse_minmax_object(yml, 'defence', int, 0)
-        self.xp = Util.parse_minmax_object(yml, 'xp', int, 0)
+        self.health = YamlUtil.parse_minmax_object(yml, 'health', int)
+        self.attack = YamlUtil.parse_minmax_object(yml, 'attack', int)
+        self.defence = YamlUtil.parse_minmax_object(yml, 'defence', int, 0)
+        self.xp = YamlUtil.parse_minmax_object(yml, 'xp', int, 0)
 
     def create_enemy(self) -> Enemy:
         """
