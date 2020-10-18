@@ -33,6 +33,12 @@ include
 
 This file simply contains a yaml list of all files to include. The included files will treated as if they are all one large file.
 
+# Names
+
+Enemies, rooms, and items all have unique names which can be used to refer to them in game (and in [item effects](Items.md#effects)).
+
+Because these names can be used to 
+
 ## Min and Max Values
 
 For properties which could be generated randomly, a range can be provided. This is done by replacing the property name with `min_<property>` and `max_<property>`.
