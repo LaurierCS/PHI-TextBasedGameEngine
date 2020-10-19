@@ -3,7 +3,7 @@ from operator import itemgetter
 from typing import List
 import re
 from game.GameError import GameError
-from GameObject import GameObject
+from gameobjects.GameObject import GameObject
 
 
 def tokenize(effect, error):
