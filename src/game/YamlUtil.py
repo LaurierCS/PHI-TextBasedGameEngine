@@ -8,7 +8,7 @@ Date: 2020-03-26
 import yaml
 import re
 import os.path as path
-from GameError import GameError
+from game.GameError import GameError
 
 class YamlUtil():
     """
