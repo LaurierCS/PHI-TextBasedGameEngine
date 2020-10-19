@@ -1,4 +1,4 @@
-from game.YamlUtil import YamlUtil
+from YamlUtil import YamlUtil
 
 class Game(object):
     """
@@ -14,11 +14,10 @@ class Game(object):
         @param rooms TODO: not yet implemented
         @param player TODO: not yet implemented
         """
-        # TODO: These might not all be arrays (player in particular)
-        self.enemies = []
-        self.items = []
-        self.rooms = []
-        self.player = []
+        self.enemies = enemies
+        self.items = items
+        self.rooms = rooms
+        self.player = player
     
     def save_game_state(self, save_path : str) -> None:
         """
@@ -47,4 +46,7 @@ class Game(object):
         rooms = YamlUtil.load_yaml_data( YamlUtil.get_yaml_filename(directory, "rooms") )
         items = YamlUtil.load_yaml_data( YamlUtil.get_yaml_filename(directory, "items") )
         player = YamlUtil.load_yaml_data( YamlUtil.get_yaml_filename(directory, "player") )
+        YamlUtil.get_names(enemies)
+        YamlUtil.get_names(items)
+        YamlUtil.get_names(rooms)
         return Game(enemies, items, rooms, player)
