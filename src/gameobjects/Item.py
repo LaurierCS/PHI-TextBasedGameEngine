@@ -1,8 +1,10 @@
 from random import randint
 from operator import itemgetter
-from game.GameError import GameError
-from gameobjects.GameObject import GameObject
 from typing import List
+import re
+from game.GameError import GameError
+from GameObject import GameObject
+
 
 def tokenize(effect, error):
     tok, toks = '', []
@@ -79,7 +81,7 @@ class Item(GameObject):
         }
 
         def raise_err():
-            raise GameError(f'Invalid formatting: "{effect}" in object {self.name}')
+            raise GameError(f'Invalid formatting: "{effect}"')
         toks = tokenize(effect, error=raise_err)
         if len(toks) == 0:
             return None
