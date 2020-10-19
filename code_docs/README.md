@@ -23,6 +23,30 @@
 
 ## Functions
 
+### test_parser_validate
+
+
+
+
+
+
+
+### test_parser_binary
+
+
+
+
+
+
+
+### test_parser_compile
+
+
+
+
+
+
+
 ### set_gameobject_id
 
 
