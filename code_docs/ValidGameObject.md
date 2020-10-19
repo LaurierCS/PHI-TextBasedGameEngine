@@ -1,7 +1,6 @@
-# Enemy
-Authors: **Jacob Heard**
+# ValidGameObject
 
-Represents an Enemy within the game.   
+
 
 
 ## Methods

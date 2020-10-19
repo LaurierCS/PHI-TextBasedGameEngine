@@ -2,17 +2,16 @@
 
 ## Classes
 
+**[ValidGameObject](ValidGameObject.md)**: 
+
+**[GameObject](GameObject.md)**: Base class to be used for all in-game instantiable objects 
+
 **[Interaction](Interaction.md)**: Represents an in-game interaction. For example: a user entering a room and being provided with choice of what to do. 
 
 **[Enemy](Enemy.md)**: Represents an Enemy within the game.   
 
 
-**[EnemyTemplate](EnemyTemplate.md)**: A template for creating enemy instances, each template corresponds to 1 entry in the enemies.yaml file 
-
 **[Item](Item.md)**: An item object enables developers to add usable/interactable that the player can pickup, drop, and use.   
-
-
-**[Entity](Entity.md)**: Represents an Entity within the game, such as NPC's, animals, or enemies.   
 
 
 **[GameError](GameError.md)**: A custom exception for providing more information to the user. The general use of this class is to catch an exception, add some additional information, then raise GameError 
@@ -23,3 +22,75 @@
 
 
 ## Functions
+
+### set_gameobject_id
+
+
+
+#### Parameters
+name | description | default
+--- | --- | ---
+id |  | 
+
+
+
+
+
+### test_load_from_template
+
+
+
+
+
+
+
+### test_instantiate_gameobject_subclass
+
+
+
+
+
+
+
+### test_missing_required_attribute
+
+
+
+
+
+
+
+### test_unexpected_attribute
+
+
+
+
+
+
+
+### minmax
+
+
+
+#### Parameters
+name | description | default
+--- | --- | ---
+obj |  | 
+
+
+
+
+
+### tokenize
+
+
+
+#### Parameters
+name | description | default
+--- | --- | ---
+effect |  | 
+error |  | 
+
+
+
+

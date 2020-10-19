@@ -72,3 +72,36 @@ default | default value to use if the key is not found | None
 #### Throws
 
 
+
+### get_names
+
+
+Ensures all names are valid and unique, simplifies if necessary.   
+
+
+#### Parameters
+name | description | default
+--- | --- | ---
+yaml_objects |  | 
+
+
+
+
+#### Throws
+
+
+
+### simplify_name
+
+
+Simplifies a name based on naming standards. Returns the simplified name, or None if the name is invalid.   
+
+
+#### Parameters
+name | description | default
+--- | --- | ---
+name | Name to simplify & validate | 
+
+
+
+
