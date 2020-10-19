@@ -14,6 +14,7 @@ Item objects have the following specification.
 Property | Description | Supports min/max | Optional | Default
 --- | --- | --- | --- | ---
 name | The name of the item | no | no
+description | Description of the item | no | yes
 uses | The number of times the object can be used (-1) for infinite | yes | yes | -1 
 effect | What happens when the object is used. See [effects](#effects) | no | yes
 
