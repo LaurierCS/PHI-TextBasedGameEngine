@@ -22,5 +22,5 @@ def test_parser_compile():
     assert result.game == 'game'
     assert result.validate is False
     assert result.binary is False
-    assert result.compile is 'filename'
+    assert result.compile == 'filename'
 
