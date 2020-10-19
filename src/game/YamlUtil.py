@@ -121,7 +121,7 @@ class YamlUtil():
         for obj in yaml_objects:
             if 'name' in obj:
                 name = YamlUtil.simplify_name(obj['name'])
-                if name is None:
+                if not name:
                     raise GameError(f'The name "{obj["name"]}" is invalid')
                 elif name in names:
                     simple = f' ({name})' if name != obj['name'] else ''
@@ -135,11 +135,11 @@ class YamlUtil():
         Simplifies a name based on naming standards. Returns the simplified name, or None if the name is invalid.
 
         @param name Name to simplify & validate
-        @return simplified name, or None if name is invalid
+        @return simplified name, or '' if name is invalid
         """
         name = name.lower().strip()
         # replace multiple spaces with single space
         name = re.sub(' +', ' ', name)
         if not re.match('^[_a-z]+(( [_a-z]+)?[_a-z0-9]*)*$', name): 
-            return None
+            return ''
         return name
