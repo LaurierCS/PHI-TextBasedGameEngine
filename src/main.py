@@ -9,11 +9,11 @@ from game.Game import Game
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('game', type=str,
         help='The directory or binary file containing the game to load')
-parser.add_argument('--validate', action='store_false',
+parser.add_argument('--validate', action='store_true',
         help='Check that the yaml is correctly formatted; does not run the game')
 parser.add_argument('--compile', type=str,
         help='Filename to write compiled game into')
-parser.add_argument('--binary', action='store_false',
+parser.add_argument('--binary', action='store_true',
         help='Load a binary game file')
 
 if __name__ == '__main__':
