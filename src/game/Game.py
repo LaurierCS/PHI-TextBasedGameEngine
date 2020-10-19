@@ -1,4 +1,4 @@
-from game.YamlUtil import YamlUtil
+from YamlUtil import YamlUtil
 
 class Game(object):
     """
