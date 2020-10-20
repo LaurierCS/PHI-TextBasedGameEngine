@@ -8,7 +8,7 @@ For example, if there is 1 "spider" enemy defined in `enemies.yaml`, there could
 
 ## Yaml Format
 
-`enemies.yaml` is expected to be a YAML list of enemy objectss.
+`enemies.yaml` is expected to be a YAML list of enemy objects.
 Enemy objects have the following specification
 
 Property | Description | Supports min/max | Optional | Default
@@ -31,6 +31,4 @@ An example `enemies.yaml` file could look like:
 ```
 
 This creates an enemy named "Spider", any spider encountered in the game will have between 2 and 4 HP, will always award 3 XP, and will always have 0 defence.
-
-
 
