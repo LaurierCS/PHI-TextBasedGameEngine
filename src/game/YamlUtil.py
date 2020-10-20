@@ -6,6 +6,7 @@ Date: 2020-03-26
 @author
 """
 import yaml
+import re
 import os.path as path
 from game.GameError import GameError
 
@@ -52,6 +53,7 @@ class YamlUtil():
         """
         with open( filename, 'r' ) as stream:
             data = yaml.safe_load( stream )
+            print('loaded:', data)
             return data
 
     @staticmethod
@@ -106,3 +108,38 @@ class YamlUtil():
             raise GameError("Error formatting property '{}': {}".format(key, ex))
         
         return result
+
+    @staticmethod
+    def get_names(yaml_objects):
+        """
+        Ensures all names are valid and unique, simplifies if necessary.
+
+        @throws GameError is a name is invalid or duplicate
+        @return a list of simplified, unique, valid names
+        """
+        names = set()
+        for obj in yaml_objects:
+            if 'name' in obj:
+                name = YamlUtil.simplify_name(obj['name'])
+                if not name:
+                    raise GameError(f'The name "{obj["name"]}" is invalid')
+                elif name in names:
+                    simple = f' ({name})' if name != obj['name'] else ''
+                    raise GameError(f'The name "{obj["name"]}"{simple} is used multiple times')
+                names.add(name)
+        return list(names)
+
+    @staticmethod
+    def simplify_name(name: str) -> str:
+        """
+        Simplifies a name based on naming standards. Returns the simplified name, or None if the name is invalid.
+
+        @param name Name to simplify & validate
+        @return simplified name, or '' if name is invalid
+        """
+        name = name.lower().strip()
+        # replace multiple spaces with single space
+        name = re.sub(' +', ' ', name)
+        if not re.match('^[_a-z]+(( [_a-z]+)?[_a-z0-9]*)*$', name): 
+            return ''
+        return name
