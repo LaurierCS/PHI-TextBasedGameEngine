@@ -6,7 +6,7 @@ class GameObject(ABC):
 	Base class to be used for all in-game instantiable objects
 	@author Jacob Heard
 	"""
-	__id = 1
+	_id = 1
 
 	attributes : Dict[str, Tuple[bool, Callable[[Any], Any]]]
 	"""
@@ -22,8 +22,8 @@ class GameObject(ABC):
 	def __init__(self):
 		assert type(self) is not GameObject, 'GameObject class is not instantiable'
 
-		self.id = GameObject.id
-		GameObject.__id += 1
+		self.id = GameObject._id
+		GameObject._id += 1
 
 		for attr in self.__class__.attributes:
 			if hasattr(self, attr):

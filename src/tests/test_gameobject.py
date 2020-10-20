@@ -1,8 +1,6 @@
 import pytest
 from gameobjects.GameObject import GameObject
-
-def set_gameobject_id(id: int):
-	GameObject.id = id
+from tests.test_game_utils import *
 
 class ValidGameObject(GameObject):
 	attributes = {
@@ -50,3 +48,28 @@ def test_unexpected_attribute():
 
 	assert str(errinfo.value) == 'Unexpected attribute "test"'
 
+def test_create_multiple():
+	template = {'name': 'test_name'}
+	id = 5
+	
+	set_gameobject_id(id)
+	obj1 = ValidGameObject()
+	obj2 = ValidGameObject()
+	obj3 = ValidGameObject()
+	
+	assert obj1.id == id
+	assert obj2.id == id+1
+	assert obj3.id == id+2
+
+def test_load_from_template_multiple():
+	template = {'name': 'test_name'}
+	id = 5
+	
+	set_gameobject_id(id)
+	obj1 = GameObject.load_from_template(template, ValidGameObject)
+	obj2 = GameObject.load_from_template(template, ValidGameObject)
+	obj3 = GameObject.load_from_template(template, ValidGameObject)
+	
+	assert obj1.id == id
+	assert obj2.id == id+1
+	assert obj3.id == id+2
