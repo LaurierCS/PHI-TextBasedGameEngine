@@ -14,9 +14,9 @@ To make a change to this project, please branch or fork the repository, commit y
 
 ## Required Libraries
 
-`requirements.txt` holds all of the required libraries and their versions.
-To quickly install all of the required libraries, enter the following into your terminal/console.
-    pip install -r requirements.txt
+`requirements.txt` holds all of the required libraries and their versions.  
+To quickly install all of the required libraries, enter the following into your terminal/console.  
+`pip install -r requirements.txt`  
 Using the above command allows you to get up and running quickly on working on the project!
 
 ## Contact Us
