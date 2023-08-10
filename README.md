@@ -1,6 +1,10 @@
-# Text Based Game Engine
+<div align="center">
+
+<img src="./assets/textbased.png" />
 
 A text based game engine developed by Laurier's PHI club.
+
+</div>
 
 ## Project Goals
 
