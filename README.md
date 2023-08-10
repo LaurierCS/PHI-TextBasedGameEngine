@@ -2,7 +2,7 @@
 
 <img src="./assets/textbased.png" />
 
-A text based game engine developed by Laurier's PHI club.
+#### A text based game engine developed by Laurier's PHI club.
 
 </div>
 
